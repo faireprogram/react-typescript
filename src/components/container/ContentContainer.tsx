@@ -7,7 +7,6 @@ class ContentContainer extends React.Component<any, any>{
     render() {
         return (
              <div className="content-container">
-                currentLength => {this.currentLength}
                 {this.getContent && this.getContent()}
             </div>
         );

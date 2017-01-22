@@ -1,10 +1,4 @@
-// Declaring variables
-@border-width: 1px;
-@red: #842210;
-
-// Using variablesx
 div#example {
-    border: @border-width solid @red;
 
     .h2 {
 	    font-size: 18px;
@@ -13,7 +7,7 @@ div#example {
 
 
     .highlight .highlight-text{
-    	background-color: yellow;
+    	background-color: yellow !important;
     }
 
     .animation-hover {
@@ -26,25 +20,60 @@ div#example {
     .content-container {
     	.search-view-container {
     		.question {
-    			padding: 5px;
+    			padding: 15px;
 
-    			.question-header {
-				    color: #366FB3;
-				    text-decoration: none;
-				    cursor: pointer;
-    			}
+			    &:first-child {
+			    	padding-top: 10px;
+			    };
 
-    			.question-header:hover {
-    				.animation-hover;
-    				background-color: white;
-    				border: none !important;
+			    .profile-info, .question-info {
+			    	float: left;
+			    }
+
+			    &:after, .question-info::after {
+			    	content: '';
+			    	display: block;
+			    	clear: both;
+			    }
+
+			    .profile-info {
+		    	    margin-right: 15px;
+    				margin-top: 3px;
+			    	img {
+			    		width: 32px;
+    					height: 32px;
+			    	}
+			    }
+
+    			.question-info {
+    				width: calc(~"100% - 47px");
+				    color: #999;
+    				font-size: 11px;
+
+    				.question-header {
+					    color: #366FB3;
+					    text-decoration: none;
+					    cursor: pointer;
+	    			}
+
+	    			.question-header:hover {
+	    				.animation-hover;
+	    				background-color: white;
+	    				border: none !important;
+	    			}	
     			}
     		}
     	}
     }
 
+    .search-container {
+    	padding: 15px;
+    	border-bottom: 1px solid #E5E5E5;
+    }
+
 
     .badge-container {
+    	padding-right: 5px;
     	.badge {
 		    font-size: 11px;
 		    font-weight: normal;

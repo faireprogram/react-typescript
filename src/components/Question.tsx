@@ -26,11 +26,20 @@ class Question extends React.Component<any, any> {
 		} 	
 
        return (
-       		<div className="question" key={this.props.index}>
-       			<div className={titleClass}>
-       				<Link to={`/question/${questionId}`} className="question-header h2">	{highlightTitle} </Link>
+       		<div className="question " key={this.props.index}>
+       			<div className="profile-info">
+       				<span>
+	       				<img src={this.props.question.owner.profile_image}/>
+       				</span>
        			</div>
-       			<Tags tags={this.props.question.tags} />
+       			<div className="question-info">
+       				<div className={titleClass}>
+       					<Link to={`/question/${questionId}`} className="question-header h2">	{highlightTitle} </Link>
+	       			</div>
+	       			<Tags tags={this.props.question.tags} {...this.props}/>
+	       			<span className="label-text">score {this.props.question.score} | </span>
+	       			<span className="label-text">answer count {this.props.question.answer_count}</span>
+       			</div>
        		</div>
        	);
     }	
