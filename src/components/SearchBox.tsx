@@ -22,18 +22,18 @@ class SearchBox extends React.Component<any, any> {
 	   			}.bind(this)
 	   		},
 	   		buttonOpts = {
-	   			onClick: (event) => { 
+	   			onClick: function (event) { 
 	   				hashHistory.push('/search?searchFor=' + this.textInput.value);
 	   				this.props.baseClick(this.props.click, {domEvent: event, searchString: this.textInput.value});
-	   			},
+	   			}.bind(this),
 	   			onKeyDown:  this.props.baseKeydown(this.props.keydown),
 	   			onKeyUp: this.props.baseKeyUp(this.props.keyup)
 	   		},
 	   		highlighCheckboxOpts = {
 	   			type: 'checkbox',
-	   			onChange: (event) => {
-	   				this.props.baseClick(this.props.checkedHighlight, {highlight: this.checkBox.checked});
-	   			},
+	   			onChange: function (event) {
+	   				this.props.baseClick(this.props.checkedHighlight, {highlight: this.checkBox.checked, highlightString: this.textInput.value});
+	   			}.bind(this),
 	   			ref: function(checkbox: React.ReactInstance) {
 	   				this.checkBox = checkbox;
 	   			}.bind(this)

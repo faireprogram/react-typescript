@@ -49,7 +49,7 @@ class MainAction extends Service{
 		}.bind(this),
 
 		highlight: function(dispatch, context) {
-			dispatch({type: 'HIGHLIGHT_CHANGED', highlight: context.highlight});
+			dispatch({type: 'HIGHLIGHT_CHANGED', highlight: context.highlight, highlightString: context.highlightString});
 		}
 	}
 	

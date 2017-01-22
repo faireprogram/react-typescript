@@ -2,7 +2,7 @@
 /* begin the request*/
 const search_request = (state, action) => {
 	console.log('SEARCH_REQUEST', state, action);
-	return Object.assign({}, state, {searchString: action.searchString});
+	return Object.assign({}, state, {searchString: action.searchString, highlightString: action.highlightString});
 }
 
 /* done the request */
@@ -17,7 +17,7 @@ const search_receive = (state, action) => {
 }
 
 const highlight_changed = (state, action) => {
-	return Object.assign({}, state, {highlight: action.highlight});
+	return Object.assign({}, state, {highlight: action.highlight, highlightString: action.highlightString});
 }
 
 const navigate_to = (state, action) => {

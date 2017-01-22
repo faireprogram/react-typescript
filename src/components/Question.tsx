@@ -7,7 +7,7 @@ import {Link} from "react-router";
 class Question extends React.Component<any, any> {
 
 	shouldHighlight(title?) {
-		return util.text.shouldHighlight(this.props.highlight, this.props.searchString, title || this.props.question.title);
+		return util.text.shouldHighlight(this.props.highlight, this.props.highlightString, title || this.props.question.title);
 	}
 
 	render() {

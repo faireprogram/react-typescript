@@ -5,7 +5,7 @@ import {util} from "../lib/util"
 class Tags extends React.Component<any, any> {
 
 	shouldHighlight(tag) {
-		return util.text.shouldHighlight(this.props.highlight, this.props.searchString, tag);
+		return util.text.shouldHighlight(this.props.highlight, this.props.highlightString, tag);
 	}
 
 

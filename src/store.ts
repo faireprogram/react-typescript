@@ -1,7 +1,7 @@
 import {Store, createStore} from "redux";
 import reducers from "./reducer"
 
-const initialState = {questions: [], highlight: false, searchString: ''};
+const initialState = {questions: [], highlight: false, searchString: '', highlightString: ''};
 
 //create store
 const store = createStore(
