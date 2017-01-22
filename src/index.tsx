@@ -1,9 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import {Provider} from "react-redux";
 
-import { Hello } from "./components/Hello";
+import store from "./store"
+import router from "./route"
+import './less/main.less';
+
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+	<Provider store={store}>
+		{router}
+    </Provider>,
     document.getElementById("example")
 );

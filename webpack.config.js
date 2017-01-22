@@ -1,10 +1,13 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
         publicPath: "/assets/",
         filename: "bundle.js",
         path: __dirname + "/dist",
-        sourceMapFilename: "http://localhost/dist/" + "[file].map"
+        sourceMapFilename: "[file].map"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -18,7 +21,11 @@ module.exports = {
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            }
         ],
 
         preLoaders: [
@@ -26,6 +33,11 @@ module.exports = {
             { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
+
+    plugins: [
+        // extract CSS into separate file
+        new ExtractTextPlugin('[name].css',  { allChunks: true })
+    ],
 
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
